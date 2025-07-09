@@ -21,3 +21,29 @@ Please submit your project by uploading it to your git repository and provide us
 During the interview, you will be required to run these tests, and we will discuss the implementation and best practices.
 
 We believe you will find this task interesting, and we are excited to look over your submission.
+
+# Project artifacts - Playwright Automation Using TypeScript
+
+# Required Artifacts
+VS Code
+Node.js
+npm
+Git Repositiry
+
+# Package.json 
+
+See - dependencies to know more about the additional packages insatalled
+
+# Steps to run
+
+Clone the repository: git clone https://github.com/brighthr/QA-Automation.git to the respective folder
+Open in VS Code editor
+Install Depedancies: npm install
+To execute the Test file : npx playwright test < testfile name >.spec.ts
+
+# Folder Details
+test - holds the test scripts
+testData - holds the test data in the form of JSON file
+utils - holds the locators details
+helpers - hold the details of actions and methods used to execute the script
+properties - holds the env url and cred 

@@ -1,0 +1,26 @@
+{
+  "name": "qa-automation",
+  "version": "1.0.0",
+  "description": "We have a technical task that comprises two steps:",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brighthr/QA-Automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brighthr/QA-Automation/issues"
+  },
+  "homepage": "https://github.com/brighthr/QA-Automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.10"
+  },
+  "dependencies": {
+    "dotenv": "^17.1.0",
+    "fs": "^0.0.1-security"
+  }
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "firstName": "Anupriya",
+        "lastName": "A M",
+        "emailAddress":"anu.mohan1@gmail.com",
+        "phoneNumber":"07723456778",
+        "jobTitle":"Quality Engineer",
+        "startYear": "2024",
+        "startMonth":"May",
+        "startDay":"20"
+    },
+    {
+       "firstName": "Karthik",
+        "lastName": "Natesan",
+        "emailAddress":"karthik.n1@gmail.com",
+        "phoneNumber":"07723456777",
+        "jobTitle":"Senior Quality Engineer",
+        "startYear": "2025",
+        "startMonth":"Mar",
+        "startDay":"20"
+    }
+]
