@@ -15,8 +15,8 @@ export class PaymentPage extends CommonActions {
  * - Validates the presence of a loading indicator.
  */
   async paymentDetails(donationData: object) {
-    await this.fillPaymentDetails(donationData)
-    await this.completePayment()
+    await this.fillPaymentDetails(donationData);
+    await this.completePayment();
   }
 
   /**
@@ -38,7 +38,7 @@ export class PaymentPage extends CommonActions {
     await this.interactWithElement("ID", selectors.paymentDetails.cardholderID, "fill", cardHolderName);
     await this.page.frameLocator(selectors.paymentDetails.dateFrameID).locator(selectors.paymentDetails.dateID).fill(donationData.donation[0].paymentDetails.cardExpiry);
     await this.page.frameLocator(selectors.paymentDetails.cvvFrameID).locator(selectors.paymentDetails.cvvID).fill(donationData.donation[0].paymentDetails.cvv);
-    const giftaid = donationData.donation[0].paymentDetails.giftaid
+    const giftaid = donationData.donation[0].paymentDetails.giftaid;
     if (giftaid === "Yes") {
       await this.interactWithElement("ID", selectors.paymentDetails.giftAid, "click");
     }
@@ -54,7 +54,7 @@ export class PaymentPage extends CommonActions {
         { timeout: 15000 }
       ),
       this.interactWithElement("TEXT", selectors.paymentDetails.completeDonationButton, "click"),
-      await this.loadingValidation()
+      this.loadingValidation()
     ]);
     const responseBody = await response.json();
     this.transactionId = responseBody.id;
@@ -93,10 +93,11 @@ export class PaymentPage extends CommonActions {
     await detailsPage.fillAddressDetails(donationData);
     await detailsPage.fillPhoneNumber(donationData);
     await detailsPage.donationContinue();
+    await this.page.waitForSelector(`text=${selectors.paymentDetails.donationMethodLblTxt}`, { state: 'visible', timeout: 10000 });
     this.interactWithElement("TEXT", selectors.paymentDetails.completeDonationButton, "click");
     await expect(this.page.getByText(selectors.paymentDetails.paymentMethodError)).toBeVisible();
     await this.interactWithElement("XPATH", selectors.paymentDetails.paymentCardID, "click");
-    this.interactWithElement("TEXT", selectors.paymentDetails.completeDonationButton, "click")
+    this.interactWithElement("TEXT", selectors.paymentDetails.completeDonationButton, "click");
     await expect(this.page.getByText(selectors.paymentDetails.cardNameError)).toBeVisible();
     await this.page.frameLocator(selectors.paymentDetails.cardFrameID).locator(selectors.paymentDetails.cardNumberID).focus();
     await this.page.keyboard.press('Tab');

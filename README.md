@@ -27,14 +27,14 @@ npm install
 npx playwright test
 
 # Key Feature and Validation
-** Automated end-to-end test scripts validate a complete and successful donation transaction.
-** Validates the transactionId from the /transaction API (POST method) and asserts it against the value displayed on the Thank You page.
-** Validated dynamic content on the Thank You page based on user input data (data from test data)
-** Handles validation for non-mandatory fields when the test data does not include values
-** Validated the error messages when mandatory fields are left empty
-** Used getByText, toHaveText to validate the text content
-** Used default Playwright report for result
-** Used 1 worker, if need parallel execution and worker need to be changed from playwright.config.ts
+** - Automated end-to-end test scripts validate a complete and successful donation transaction.
+** - Validates the transactionId from the /transaction API (POST method) and asserts it against the value displayed on the Thank You page.
+** - Validated dynamic content on the Thank You page based on user input data (data from test data)
+** - Handles validation for non-mandatory fields when the test data does not include values
+** - Validated the error messages when mandatory fields are left empty
+** - Used getByText, toHaveText to validate the text content
+** - Used default Playwright report for result
+** - Used 1 worker, if need parallel execution and worker need to be changed from playwright.config.ts
 
 # Tech Stack
 

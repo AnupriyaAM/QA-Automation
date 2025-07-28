@@ -33,13 +33,13 @@ export class DetailsPage extends CommonActions {
     */
     async fillPersonalDetails(donationData: any) {
         await expect(this.page.getByText(selectors.personalDetails.yourDetailsText, { exact: true })).toBeVisible();
-        await expect(this.page.getByLabel(selectors.personalDetails.title)).toBeVisible()
-        await this.page.selectOption(selectors.personalDetails.titlePath, { label: donationData.donation[0].personalDetails.title })
-        await expect(this.page.getByLabel(selectors.personalDetails.firstNameText)).toBeVisible()
+        await expect(this.page.getByLabel(selectors.personalDetails.title)).toBeVisible();
+        await this.page.selectOption(selectors.personalDetails.titlePath, { label: donationData.donation[0].personalDetails.title });
+        await expect(this.page.getByLabel(selectors.personalDetails.firstNameText)).toBeVisible();
         await this.interactWithElement("ID", selectors.personalDetails.firstNameID, "fill", donationData.donation[0].personalDetails.firstname);
-        await expect(this.page.getByLabel(selectors.personalDetails.lastNameText)).toBeVisible()
+        await expect(this.page.getByLabel(selectors.personalDetails.lastNameText)).toBeVisible();
         await this.interactWithElement("ID", selectors.personalDetails.lastNameID, "fill", donationData.donation[0].personalDetails.lastname);
-        await expect(this.page.getByLabel(selectors.personalDetails.emailText)).toBeVisible()
+        await expect(this.page.getByLabel(selectors.personalDetails.emailText)).toBeVisible();
         await this.interactWithElement("ID", selectors.personalDetails.emailID, "fill", donationData.donation[0].personalDetails.email);
 
     }
@@ -56,20 +56,20 @@ export class DetailsPage extends CommonActions {
     */
     async fillAddressDetails(donationData: any) {
         await expect(this.page.getByText(selectors.personalDetails.yourAdressText, { exact: true })).toBeVisible();
-        await expect(await this.getLocator("ID", selectors.personalDetails.addressheader)).toHaveText(selectors.personalDetails.addressHeaderText)
+        await expect(await this.getLocator("ID", selectors.personalDetails.addressheader)).toHaveText(selectors.personalDetails.addressHeaderText);
         await this.interactWithElement("ID", selectors.personalDetails.addressheader, "click");
         await expect(this.page.getByText(selectors.donationDetails.addressContent)).toBeVisible();
-        await expect(this.page.getByLabel(selectors.personalDetails.postCodeText)).toBeVisible()
+        await expect(this.page.getByLabel(selectors.personalDetails.postCodeText)).toBeVisible();
         await expect(this.page.getByText(selectors.personalDetails.postcodeLabelText)).toBeVisible();
         await expect(this.page.getByText(selectors.personalDetails.manualAddressText)).toBeVisible();
         await expect(this.page.getByText(selectors.personalDetails.manualAddressLink, { exact: true })).toBeVisible();
         await this.interactWithElement("ID", selectors.personalDetails.postalCodeText, "fill", donationData.donation[0].personalDetails.homeAddress.postcode);
         await this.interactWithElement("TEXT", selectors.personalDetails.findAddress, "click");
-        await expect(this.page.getByLabel(selectors.personalDetails.selectAddress)).toBeVisible()
-        const fullAddress = donationData.donation[0].personalDetails.homeAddress
-        await this.page.selectOption(selectors.personalDetails.addressOptn, { label: `${fullAddress.address1}, ${fullAddress.town}, ${fullAddress.postcode}` })
-        expect(await this.page.locator(selectors.personalDetails.address1).inputValue()).toMatch(fullAddress.address1)
-        expect(await this.page.locator(selectors.personalDetails.city).inputValue()).toMatch(fullAddress.town)
+        await expect(this.page.getByLabel(selectors.personalDetails.selectAddress)).toBeVisible();
+        const fullAddress = donationData.donation[0].personalDetails.homeAddress;
+        await this.page.selectOption(selectors.personalDetails.addressOptn, { label: `${fullAddress.address1}, ${fullAddress.town}, ${fullAddress.postcode}` });
+        expect(await this.page.locator(selectors.personalDetails.address1).inputValue()).toMatch(fullAddress.address1);
+        expect(await this.page.locator(selectors.personalDetails.city).inputValue()).toMatch(fullAddress.town);
         expect(await this.page.locator(selectors.personalDetails.country).textContent()).toBe(fullAddress.country);
     }
 
@@ -96,7 +96,7 @@ export class DetailsPage extends CommonActions {
         await expect(this.page.getByText(selectors.personalDetails.phone, { exact: true })).toBeVisible();
         const isSelected = await this.page.locator(selectors.personalDetails.phoneOptn).first().isChecked();
         if (typeof isSelected === "boolean" && isSelected === true) {
-            await expect(this.page.getByLabel(selectors.personalDetails.phoneNumber)).toBeVisible()
+            await expect(this.page.getByLabel(selectors.personalDetails.phoneNumber)).toBeVisible();
             await this.interactWithElement("ID", selectors.personalDetails.phNumberID, "fill", donationData.donation[0].personalDetails.phone);
         }
     }

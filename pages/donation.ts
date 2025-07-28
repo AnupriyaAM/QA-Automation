@@ -116,11 +116,9 @@ export class DonationPage extends CommonActions {
   async yourMotivation(donationData: any) {
     await expect(this.page.getByText(selectors.donationDetails.motivationText)).toBeVisible();
     await expect(this.page.getByText(selectors.donationDetails.reasonLabel)).toBeVisible();
-    await this.page.selectOption(selectors.donationDetails.motivationType, { label: donationData.donation[0].amountandReason.motivationReason })
+    await this.page.selectOption(selectors.donationDetails.motivationType, { label: donationData.donation[0].amountandReason.motivationReason });
     await this.page.getByText(selectors.donationDetails.discLink).click();
     await expect(this.page.getByText(selectors.donationDetails.motivationContent)).toBeVisible();
-    // await expect(await this.getLocator("CLASS", "sc-eCYdqJ.FdkWW")).toBeVisible();
-    // await expect(await this.getLocator("CLASS", "sc-eCYdqJ.FdkWW")).toHaveText(selectors.donationDetails.motivationContent)
     const personName = donationData.donation[0].amountandReason.personNameMemory
     if (personName !== null && personName !== undefined && personName.trim() !== "") {
       await this.interactWithElement("ID", selectors.donationDetails.memoryID, "fill", personName)
@@ -142,10 +140,10 @@ export class DonationPage extends CommonActions {
     await expect(this.page.getByText(selectors.donationDetails.donationGoesLabel)).toBeVisible();
     if (donationData.donation[0].amountandReason.donationFundOptn === selectors.donationDetails.cancerTypeTxt) {
       await this.page.getByRole('radio', { name: donationData.donation[0].amountandReason.donationFundOptn }).check();
-      await this.page.selectOption("//select[@data-testid='restrictionSelect']", { label: donationData.donation[0].amountandReason.cancerType })
+      await this.page.selectOption("//select[@data-testid='restrictionSelect']", { label: donationData.donation[0].amountandReason.cancerType });
     }
     else {
-      await this.page.getByRole('radio', { name: selectors.donationDetails.cancerTypeRadio1 }).check();  //selectors.donationDetails.
+      await this.page.getByRole('radio', { name: selectors.donationDetails.cancerTypeRadio1 }).check();
     }
   }
 

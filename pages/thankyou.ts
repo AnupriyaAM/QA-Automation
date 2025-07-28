@@ -15,7 +15,7 @@ export class ThankyouPage extends CommonActions {
   * - Validates the donation summary details
   */
   async thankyouDetails(donationData: object, paymentPage: PaymentPage) {
-    await this.confirmationRecipit(donationData, paymentPage)
+    await this.confirmationRecipit(donationData, paymentPage);
     await this.donationDetails(donationData);
   }
 
@@ -36,7 +36,7 @@ export class ThankyouPage extends CommonActions {
     await expect(this.page.getByText(selectors.thankYouDetails.memoryText)).toBeVisible();
     await expect(this.page.getByText(selectors.thankYouDetails.referenceText)).toBeVisible();
     const referenceId = await this.page.getByText(selectors.thankYouDetails.referenceText).textContent();
-    expect(referenceId?.split("is ")[1]).toBe(paymentPage.getTransactionId())
+    expect(referenceId?.split("is ")[1]).toBe(paymentPage.getTransactionId());
     await expect(this.page.getByText(`A confirmation email will be sent to ${donationData.donation[0].personalDetails.email}`)).toBeVisible();
   }
 
@@ -62,7 +62,7 @@ export class ThankyouPage extends CommonActions {
     }
     if (donationData.donation[0].amountandReason.motivationReason === selectors.thankYouDetails.memoryLabel) {
       await expect(this.page.getByAltText(selectors.thankYouDetails.memoryicon)).toBeVisible();
-      const personName = donationData.donation[0].amountandReason.personNameMemory
+      const personName = donationData.donation[0].amountandReason.personNameMemory;
       if (personName !== null && personName !== undefined && personName.trim() !== "") {
         await expect(this.page.getByText(`In memory of ${personName}`)).toBeVisible();
       }
