@@ -1,0 +1,23 @@
+{
+  "name": "qa-automation",
+  "version": "1.0.0",
+  "description": "Playwright Automation for CRUK",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnupriyaAM/QA-Automation.git"
+  },
+  "keywords": [],
+  "author": "Anupriya Amudhavalli Mohanraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnupriyaAM/QA-Automation/issues"
+  },
+  "homepage": "https://github.com/AnupriyaAM/QA-Automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0",
+    "fs": "^0.0.1-security"
+  }
+}
