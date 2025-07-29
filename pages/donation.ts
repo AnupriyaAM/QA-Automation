@@ -47,7 +47,7 @@ export class DonationPage extends CommonActions {
    * @param donationData - The test data containing donation amount, donation type and purpose related fields
    * 
    * - Verifies the donation title, regular donation label visibility and text.
-   * - Clicks the desired donation amount.
+   * - Clicks the desired donation amount(amount validation has been done based on user input in test data(amount.method can be 'select' or 'fill')).
    * - Verifies the regular donation link
    */
   async donateAmount(donationData: any) {
